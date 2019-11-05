@@ -7,8 +7,5 @@ public class FileUtils {
 	protected static void userLoginFileControl() {
 		String absPath = Config.uPath;
 		File file = new File(absPath);
-		if(file.exists()) {
-			
-		}
 	}
 }
