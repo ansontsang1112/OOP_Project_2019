@@ -1,6 +1,6 @@
 package com.anson.main;
 
-public class Initalization {
+public class Initialization {
 	LoginStatus status = Config.loginStatus;
 	
 	public static void boot() {
