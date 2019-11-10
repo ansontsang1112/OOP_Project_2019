@@ -1,10 +1,11 @@
 package com.anson.main;
 
+import com.anson.main.enums.Exception;
 import com.anson.main.enums.InitializationStatus;
 import com.anson.main.enums.LoginStatus;
 
 public class Config {
-	/*Public Access for Path Get*/
+	/*Public API Access for Path Get*/
 	public static String getPath(int choose) {
 		switch (choose) {
 			case 1:
@@ -16,10 +17,10 @@ public class Config {
 		}
 	}
 
-	static String FS = System.getProperty("file.separator");
-	static String CDIR = System.getProperty("user.dir");
-	static String userDataFile = "G42User.csv";
-	static String loginRecord = "G42LoginRecord.csv";
+	private static String FS = System.getProperty("file.separator");
+	private static String CDIR = System.getProperty("user.dir");
+	private static String userDataFile = "G42User.csv";
+	private static String loginRecord = "G42LoginRecord.csv";
 
 	/*File INI Header*/
 	protected static String userHeader = "U_ID,Encrypted_Pwd,U_Name,Full_Name,U_Role,Year_of_Birth,Remarks";
@@ -32,4 +33,5 @@ public class Config {
 	/*Default Status*/
 	public static LoginStatus loginStatus = LoginStatus.NULL;
 	public static InitializationStatus iniStatus = InitializationStatus.NULL;
+	public static Exception exceptionStatus = Exception.NA;
 }
