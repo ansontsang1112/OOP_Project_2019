@@ -1,4 +1,4 @@
 package com.kenny.main;
 
-public class main {
+public class KennyTest {
 }
