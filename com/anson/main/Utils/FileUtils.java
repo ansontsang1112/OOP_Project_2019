@@ -45,6 +45,6 @@ public class FileUtils {
 		fileOrgData = readFromFile(editFilePath);
 		combData = fileOrgData+"\n"+data;
 		System.out.println(combData);
-		//writeToNewFile(file, combData);
+		writeToNewFile(file, combData);
 	}
 }
