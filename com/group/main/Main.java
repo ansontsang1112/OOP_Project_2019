@@ -1,17 +1,19 @@
 package com.group.main;
 
-import com.anson.main.Register;
+import com.anson.main.Config;
 import com.anson.main.Initialization;
+import com.anson.main.Utils.FileUtils;
 
+import java.io.File;
 import java.io.IOException;
 
 public class Main {
 	public static void main(String[] args) throws IOException {
 		/*Boot Up the Programme*/
-		Initialization.boot();
+        if(!Utils.isFileExists(Config.getPath(1)) || !Utils.isFileExists(Config.getPath(2))) {
+            Initialization.boot();
+        }
 		/*Create the Default Accounts*/
-		Register.createUser("001", "a", "a", "Ng Hoi Yun Gordon", "2000", "Eric Killer");
-		Register.createUser("002", "b", "b", "Tsang Cheuk Him Anson", "2000", "Super Saiyan");
-		Register.createUser("003", "c", "c", "Chak Chun Yin Kenny", "2000", "Eric Boomer");
-	}
+        System.out.println(FileUtils.compareLineToFile(new File(Config.getPath(1)), "001,cc175b9c0f1b6a831c399e269772661,a,Ng Hoi Yun Gordon,2000,Eric Killer"));
+    }
 }

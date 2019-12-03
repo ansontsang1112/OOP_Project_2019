@@ -4,9 +4,10 @@ import com.anson.main.Config;
 import com.anson.main.enums.Exception;
 
 import java.io.*;
+import java.util.Scanner;
 
 public class FileUtils {
-	public static void writeToNewFile(File file, String data) throws IOException {
+	public static void writeToFile(File file, String data) throws IOException {
 		FileWriter writer = new FileWriter(file);
 		writer.write(data);
 		writer.close();
@@ -39,12 +40,22 @@ public class FileUtils {
 		return returnString;
 	}
 
-	public static void writeToExistFile(File file, String editFilePath, String data) throws IOException{
-		String fileOrgData = "";
-		String combData = "";
-		fileOrgData = readFromFile(editFilePath);
-		combData = fileOrgData+"\n"+data;
-		System.out.println(combData);
-		//writeToNewFile(file, combData);
+	public static boolean compareLineToFile(File file, String compareOrg) throws IOException {
+		try(BufferedReader reader = new BufferedReader(new FileReader(file))) {
+			String fileLine;
+			while((fileLine = reader.readLine()) != null) {
+				if(fileLine.equalsIgnoreCase(compareOrg)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public static void appendToFile(File file, String data) throws IOException {
+		FileWriter writer = new FileWriter(file, true);
+		writer.write("\n");
+		writer.write(data);
+		writer.close();
 	}
 }
