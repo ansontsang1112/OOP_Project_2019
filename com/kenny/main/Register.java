@@ -1,5 +1,7 @@
-package com.anson.main;
+package com.kenny.main;
 
+import com.anson.main.Config;
+import com.anson.main.Encryption;
 import com.anson.main.Utils.FileUtils;
 
 import java.io.File;
@@ -11,7 +13,7 @@ public class Register {
         String encryPwd = Encryption.encryption(plainPwd);
         String userPassCombo = UID+","+encryPwd+","+name+","+fullName+","+YOB+","+remark;
         /*File Create Process*/
-        File file = new File(Config.uPath);
-        FileUtils.writeToExistFile(file, Config.uPath, userPassCombo);
+        File file = new File(Config.getPath(1));
+        FileUtils.appendToFile(file, userPassCombo);
     }
 }
