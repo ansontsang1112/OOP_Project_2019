@@ -3,6 +3,7 @@ package com.group.main;
 import com.anson.main.Config;
 import com.anson.main.Initialization;
 import com.anson.main.Login;
+import com.anson.main.PasswordManagement;
 
 import java.io.IOException;
 
@@ -13,7 +14,7 @@ public class Main {
             Initialization.boot();
         }
 
-        /*"001,cc175b9c0f1b6a831c399e269772661,a,Ng Hoi Yun Gordon,2000,Eric Killer"*/
-        System.out.println(Login.authentication("a", "a"));
+        Login.authentication("a", "a");
+        System.out.println(PasswordManagement.changePassword("a", "a"));
     }
 }
