@@ -27,6 +27,7 @@ public class Initialization {
 			Config.iniStatus = InitializationStatus.FAILURE;
 		}
 
+		/*Create the Default Accounts*/
 		Register.createUser("001", "a", "a", "Ng Hoi Yun Gordon", "Administrator", "2000", "Eric Killer");
 		Register.createUser("002", "b", "b", "Tsang Cheuk Him Anson", "User","2000", "Eric Destroyer");
 		Register.createUser("003", "c", "c", "Chak Chun Yin Kenny", "Administrator","2000", "Eric Boomer");

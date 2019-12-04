@@ -4,7 +4,6 @@ import com.anson.main.Utils.FileUtils;
 import com.anson.main.enums.LoginStatus;
 
 import java.io.File;
-import java.io.IOError;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -30,8 +29,28 @@ public class Login {
         return false;
     }
 
+    private static String getUsername(String password) throws IOException {
+        ArrayList<String> wordDatabase = splitUserPassFileByComma();
+        for (int i = 0; i < wordDatabase.size(); i++) {
+            if(wordDatabase.get(i).equalsIgnoreCase(password)) {
+                return wordDatabase.get(i+1);
+            }
+        }
+        return null;
+    }
+
+
     public static LoginStatus authentication(String username, String plainPassword) throws IOException {
-        
-        return LoginStatus.NULL;
+        String encryPassword = Encryption.encryption(plainPassword);
+        boolean isPassExist = isWordExist(encryPassword);
+        ArrayList<String> spiltedWords = splitUserPassFileByComma();
+        if(isPassExist) {
+            if(getUsername(encryPassword).equalsIgnoreCase(username)) {
+                return LoginStatus.LOGIN_SUCCESS;
+            } else {
+                return LoginStatus.LOGIN_FAIL;
+            }
+        }
+        return LoginStatus.LOGIN_FAIL;
     }
 }

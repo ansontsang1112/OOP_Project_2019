@@ -12,6 +12,7 @@ public class Register {
         /*Var*/
         String encryPwd = Encryption.encryption(plainPwd);
         String userPassCombo = UID+","+encryPwd+","+name+","+fullName+","+YOB+","+remark;
+
         /*File Create Process*/
         File file = new File(Config.getPath(1));
         FileUtils.appendToFile(file, userPassCombo);

@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 U_ID,Encrypted_Pwd,U_Name,Full_Name,U_Role,Year_of_Birth,Remarks
 001,cc175b9c0f1b6a831c399e269772661,a,Ng Hoi Yun Gordon,2000,Eric Killer
 002,92eb5ffee6ae2fec3ad71c777531578f,b,Tsang Cheuk Him Anson,2000,Eric Destroyer
 003,4a8a8f09d37b73795649038408b5f33,c,Chak Chun Yin Kenny,2000,Eric Boomer
-=======
-U_ID,Encrypted_Pwd,U_Name,Full_Name,U_Role,Year_of_Birth,Remarks
->>>>>>> origin/master
