@@ -5,7 +5,7 @@ import com.anson.main.Utils.GlobalUtils;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PermissionManagement extends Config{
+public class PermissionManager extends Config{
     public static boolean isAdministrator(String username) throws IOException {
         ArrayList<String>list = GlobalUtils.splitUserPassFileByComma(Config.uPath);
         for(int i = 0; i < list.size(); i++) {

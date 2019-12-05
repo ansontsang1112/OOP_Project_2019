@@ -2,8 +2,8 @@ package com.group.main;
 
 import com.anson.main.Config;
 import com.anson.main.Initialization;
-import com.anson.main.Login;
-import com.anson.main.PasswordManagement;
+import com.anson.main.LoginManager;
+import com.anson.main.PasswordManager;
 
 import java.io.IOException;
 
@@ -14,7 +14,7 @@ public class Main {
             Initialization.boot();
         }
 
-        Login.authentication("a", "a");
-        System.out.println(PasswordManagement.changePassword("a", "a"));
+        System.out.println(LoginManager.authentication("a", "a"));
+        System.out.println(PasswordManager.changePassword("a", "b"));
     }
 }

@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Login {
+public class LoginManager {
 
     /* Get the Username By Password*/
     private static String getUsername(String password) throws IOException {
