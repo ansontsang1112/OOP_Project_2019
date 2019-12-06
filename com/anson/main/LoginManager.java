@@ -34,6 +34,6 @@ public class LoginManager {
                 return LoginStatus.LOGIN_FAIL;
             }
         }
-        return LoginStatus.NULL;
+        return LoginStatus.LOGIN_FAIL;
     }
 }

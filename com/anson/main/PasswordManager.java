@@ -15,10 +15,9 @@ public class PasswordManager {
 
     private static Scanner x;
 
-    private static boolean editPasswordAPI(String editUsername, String newPassword) throws IOException {
+    private static boolean editPasswordAPI(String editUsername, String newPassword) {
         String encryPwd = Encryption.encryption(newPassword);
-        Path sourcesFile = Paths.get(Config.getPath(1));
-        Integer resultSet = -2;
+        Integer resultSet = 0;
         String tempFile = "temp.csv";
         File originalFile = new File(Config.getPath(1));
         File newFile = new File(tempFile);
@@ -44,32 +43,46 @@ public class PasswordManager {
                     resultSet = 1;
                 } else {
                     pw.println(UID + "," + pwd + "," + username + "," + fullName + "," + role + "," + YOB + "," + remark);
-                    resultSet = 0;
                 }
             }
             x.close();
             pw.flush();
             pw.checkError();
             originalFile.delete();
+            pw.close();
+            bw.close();
+            fw.close();
             newFile.renameTo(new File("G42User.csv"));
         } catch (Exception e) {
             e.printStackTrace();
         }
         if(resultSet == 1) {
             return true;
-        } else if(resultSet == 0) {
-            return false;
         } else {
             return false;
         }
     }
 
-    public static PasswordStatus changePassword(String username, String newPassword) throws IOException {
+    public static PasswordStatus changePasswordwithAdminRole(String username, String newPassword) throws IOException {
         String currentUsername = LoginManager.currentLoginUsername;
         if(currentUsername == LoginStatus.NOT_LOGIN.toString()) {
             return PasswordStatus.LOGIN_REQUIRED;
         }
         if(!isEditable(currentUsername)) {return PasswordStatus.PERMISSION_DENIED;}
+        boolean changeResult = editPasswordAPI(username, newPassword);
+        if(changeResult) {
+            return PasswordStatus.UPDATE_SUCCESS;
+        } else {
+            return PasswordStatus.UPDATE_FAILURE;
+        }
+    }
+
+    public static PasswordStatus changePasswordwithPersonalRole(String newPassword) throws IOException {
+        String username = LoginManager.currentLoginUsername;
+        if(username == LoginStatus.NOT_LOGIN.toString()) {
+            return PasswordStatus.LOGIN_REQUIRED;
+        }
+
         boolean changeResult = editPasswordAPI(username, newPassword);
         if(changeResult) {
             return PasswordStatus.UPDATE_SUCCESS;

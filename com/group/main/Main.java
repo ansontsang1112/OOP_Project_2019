@@ -3,7 +3,6 @@ package com.group.main;
 import com.anson.main.Config;
 import com.anson.main.Initialization;
 import com.anson.main.LoginManager;
-import com.anson.main.PasswordManager;
 
 import java.io.IOException;
 
@@ -13,8 +12,6 @@ public class Main {
         if (!Utils.isFileExists(Config.getPath(1)) || !Utils.isFileExists(Config.getPath(2))) {
             Initialization.boot();
         }
-
-        System.out.println(LoginManager.authentication("a", "a"));
-        System.out.println(PasswordManager.changePassword("a", "b"));
+        LoginManager.authentication("a", "a");
     }
 }
