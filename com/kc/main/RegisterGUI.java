@@ -14,9 +14,6 @@ public class RegisterGUI extends JFrame implements ActionListener {
     private JTextField uname;
     private JLabel mno;
     private JTextField tmno;
-    private JLabel gender;
-    private JRadioButton male;
-    private JRadioButton female;
     private ButtonGroup gengp;
     private JLabel dob;
     private JComboBox date;
@@ -31,18 +28,6 @@ public class RegisterGUI extends JFrame implements ActionListener {
     private JLabel res;
     private JTextArea resadd;
 
-    private String dates[]
-            = { "1", "2", "3", "4", "5",
-            "6", "7", "8", "9", "10",
-            "11", "12", "13", "14", "15",
-            "16", "17", "18", "19", "20",
-            "21", "22", "23", "24", "25",
-            "26", "27", "28", "29", "30",
-            "31" };
-    private String months[]
-            = { "Jan", "feb", "Mar", "Apr",
-            "May", "Jun", "July", "Aug",
-            "Sup", "Oct", "Nov", "Dec" };
     private String years[]
             = { "1995", "1996", "1997", "1998",
             "1999", "2000", "2001", "2002",
@@ -103,30 +88,6 @@ public class RegisterGUI extends JFrame implements ActionListener {
         tmno.setSize(150, 20);
         tmno.setLocation(200, 150);
         c.add(tmno);
-
-        gender = new JLabel("Gender");
-        gender.setFont(new Font("Arial", Font.PLAIN, 20));
-        gender.setSize(100, 20);
-        gender.setLocation(100, 200);
-        c.add(gender);
-
-        male = new JRadioButton("Male");
-        male.setFont(new Font("Arial", Font.PLAIN, 15));
-        male.setSelected(true);
-        male.setSize(75, 20);
-        male.setLocation(200, 200);
-        c.add(male);
-
-        female = new JRadioButton("Female");
-        female.setFont(new Font("Arial", Font.PLAIN, 15));
-        female.setSelected(false);
-        female.setSize(80, 20);
-        female.setLocation(275, 200);
-        c.add(female);
-
-        gengp = new ButtonGroup();
-        gengp.add(male);
-        gengp.add(female);
 
         dob = new JLabel("DOB");
         dob.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -207,19 +168,13 @@ public class RegisterGUI extends JFrame implements ActionListener {
                         + tname.getText() + "\n"
                         + "Mobile : "
                         + tmno.getText() + "\n";
-                if (male.isSelected())
-                    data1 = "Gender : Male"
-                            + "\n";
-                else
-                    data1 = "Gender : Female"
-                            + "\n";
                 String data2
                         = "DOB : "
                         + (String)year.getSelectedItem()
                         + "\n";
 
                 String data3 = "Address : " + tadd.getText();
-                tout.setText(data + data1 + data2 + data3);
+                tout.setText(data + data2 + data3);
                 tout.setEditable(false);
                 res.setText("Registration Successfully..");
             }

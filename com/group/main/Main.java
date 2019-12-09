@@ -22,7 +22,6 @@ public class Main {
         }
 
         System.out.println(LoginManager.authentication("a", "a"));
-        //System.out.println(UserRemovalManager.userRemoval("b"));
-        
+        System.out.println(Utils.classRegisterAPI(0, "AR1220191112", "1563911438105", "Hello", "FUCK"));
     }
 }
