@@ -6,6 +6,7 @@ import com.anson.main.LoginManager;
 import com.anson.main.PasswordManager;
 import com.anson.main.enums.LoginStatus;
 import com.anson.main.enums.RegisterStatus;
+import com.kc.main.LoginGUI;
 import com.kenny.main.RegisterManager;
 
 import java.io.IOException;
@@ -16,5 +17,6 @@ public class Main {
         if (!Utils.isFileExists(Config.getPath(1)) || !Utils.isFileExists(Config.getPath(2))) {
             Initialization.boot();
         }
+        new LoginGUI().login();
     }
 }
