@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class LoginGUI extends JFrame implements ActionListener {
@@ -15,6 +16,43 @@ public class LoginGUI extends JFrame implements ActionListener {
     JTextField userName_text;
     JPasswordField password_text;
     JButton submit, cancel;
+    JPanel panelTop = new JPanel();
+    JButton butAboutMe = new JButton("About US");
+
+    JButton LogIn = new JButton("login");
+    JLabel labelImg = new JLabel(); // label to show image
+    JScrollPane sPImg = new JScrollPane(labelImg); //
+    JLabel labelStatus = new JLabel(); // label to show status info
+
+    BufferedImage orgImg;
+
+    public LoginGUI() { // A No-Argument Constructor
+        setTitle("MyName Image Viewer");
+        setSize(500, 300);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        initGUI();
+    }
+
+    void initGUI(){ // Method for initializing GUI (layout, components)
+        add(LogIn, BorderLayout.NORTH);
+        add(butAboutMe, BorderLayout.NORTH);
+        add(sPImg, BorderLayout.CENTER);
+        add(labelStatus, BorderLayout.SOUTH);
+
+        butAboutMe.addActionListener( new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+// show AboutMe Message Dialog window
+                JOptionPane.showMessageDialog(null,
+                        "Members(left to right):\n" +
+                                "MyName(ME)\n CHAN Chung Man\n CHAN Siu Man",
+                        "About Me: G22m2, 2019-2020, OOP",
+                        JOptionPane.INFORMATION_MESSAGE,
+                        new ImageIcon("AboutMe.jpg"));
+            } });
+    }
+    
+
+
 
     public void login() {
         // Username Label

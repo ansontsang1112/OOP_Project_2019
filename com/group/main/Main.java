@@ -17,7 +17,9 @@ public class Main {
         if (!Utils.isFileExists(Config.getPath(1)) || !Utils.isFileExists(Config.getPath(2))) {
             Initialization.boot();
         }
-
+        LoginGUI myApp = new LoginGUI();// Create object of our JFrame
+        myApp.setVisible(true); // show our JFrame (set visible)
+        System.out.println("END of main() method!");
 
     }
 }
