@@ -10,6 +10,8 @@ public class RegisterGUI extends JFrame implements ActionListener {
     private JLabel title;
     private JLabel name;
     private JTextField tname;
+    private JLabel username;
+    private JTextField uname;
     private JLabel mno;
     private JTextField tmno;
     private JLabel gender;
@@ -66,7 +68,7 @@ public class RegisterGUI extends JFrame implements ActionListener {
         title.setLocation(300, 30);
         c.add(title);
 
-        name = new JLabel("Name");
+        name = new JLabel("Your Name");
         name.setFont(new Font("Arial", Font.PLAIN, 20));
         name.setSize(100, 20);
         name.setLocation(100, 100);
@@ -78,7 +80,19 @@ public class RegisterGUI extends JFrame implements ActionListener {
         tname.setLocation(200, 100);
         c.add(tname);
 
-        mno = new JLabel("Mobile");
+        username = new JLabel("Username");
+        username.setFont(new Font("Arial", Font.PLAIN, 20));
+        username.setSize(100, 20);
+        username.setLocation(100, 100);
+        c.add(username);
+
+        uname = new JTextField();
+        uname.setFont(new Font("Arial", Font.PLAIN, 15));
+        uname.setSize(190, 20);
+        uname.setLocation(200, 100);
+        c.add(uname);
+
+        mno = new JLabel("Password");
         mno.setFont(new Font("Arial", Font.PLAIN, 20));
         mno.setSize(100, 20);
         mno.setLocation(100, 150);
@@ -120,25 +134,13 @@ public class RegisterGUI extends JFrame implements ActionListener {
         dob.setLocation(100, 250);
         c.add(dob);
 
-        date = new JComboBox(dates);
-        date.setFont(new Font("Arial", Font.PLAIN, 15));
-        date.setSize(50, 20);
-        date.setLocation(200, 250);
-        c.add(date);
-
-        month = new JComboBox(months);
-        month.setFont(new Font("Arial", Font.PLAIN, 15));
-        month.setSize(60, 20);
-        month.setLocation(250, 250);
-        c.add(month);
-
         year = new JComboBox(years);
         year.setFont(new Font("Arial", Font.PLAIN, 15));
         year.setSize(60, 20);
         year.setLocation(320, 250);
         c.add(year);
 
-        add = new JLabel("Address");
+        add = new JLabel("Remark");
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setSize(100, 20);
         add.setLocation(100, 300);
@@ -195,9 +197,6 @@ public class RegisterGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
-    // method actionPerformed()
-    // to get the action performed
-    // by the user and act accordingly
     public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == sub) {
@@ -216,9 +215,7 @@ public class RegisterGUI extends JFrame implements ActionListener {
                             + "\n";
                 String data2
                         = "DOB : "
-                        + (String)date.getSelectedItem()
-                        + "/" + (String)month.getSelectedItem()
-                        + "/" + (String)year.getSelectedItem()
+                        + (String)year.getSelectedItem()
                         + "\n";
 
                 String data3 = "Address : " + tadd.getText();
