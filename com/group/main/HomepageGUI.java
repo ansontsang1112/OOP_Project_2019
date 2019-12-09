@@ -77,11 +77,9 @@ public class HomepageGUI {
 
         JButton btnAboutUs = new JButton("About US");
         panel_2.add(btnAboutUs);
-        btnAboutUs.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                AboutUsGUI myGUI = new AboutUsGUI();
-                myGUI.setVisible(true);
-            }
+        btnAboutUs.addActionListener(arg0 -> {
+            AboutUsGUI myGUI = new AboutUsGUI();
+            myGUI.setVisible(true);
         });
 
         JPanel panel_3 = new JPanel();
@@ -119,11 +117,9 @@ public class HomepageGUI {
         JButton btnCustomerLogin = new JButton("Customer Login");
         btnCustomerLogin.setBounds(10, 15, 109, 23);
         panel_4.add(btnCustomerLogin);
-        btnCustomerLogin.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                LoginGUI loginGUI = new LoginGUI();
-                loginGUI.setVisible(true);
-            }
+        btnCustomerLogin.addActionListener(arg0 -> {
+            LoginGUI loginGUI = new LoginGUI();
+            loginGUI.setVisible(true);
         });
 
         JButton btnAdminLogin = new JButton("Admin Login");
@@ -140,11 +136,9 @@ public class HomepageGUI {
 
         JButton btnRegisterNewAccount = new JButton("Register New Account !!");
         panel_5.add(btnRegisterNewAccount);
-        btnRegisterNewAccount.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent arg0) {
-                RegisterGUI registerGUI = new RegisterGUI();
-                registerGUI.setVisible(true);
-            }
+        btnRegisterNewAccount.addActionListener(arg0 -> {
+            RegisterGUI registerGUI = new RegisterGUI();
+            registerGUI.setVisible(true);
         });
     }
 }
