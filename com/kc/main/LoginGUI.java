@@ -55,12 +55,12 @@ public class LoginGUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         String username = userName_text.getText();
         String password = password_text.getText();
-        
+
         try {
-            if (LoginManager.authentication(username.trim(), password.trim()) == LoginStatus.LOGIN_SUCCESS) {
+            if (LoginManager.authentication(username, password) == LoginStatus.LOGIN_SUCCESS) {
                 message.setText(" Hello " + LoginManager.currentLoginUsername + "");
             } else {
-                message.setText(" Invalid user.. ");
+                message.setText(" Invalid user .. Please Try Again");
             }
         } catch (IOException e) {
             e.printStackTrace();

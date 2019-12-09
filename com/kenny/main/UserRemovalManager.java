@@ -12,7 +12,7 @@ public class UserRemovalManager extends Config {
         ArrayList<String> list = GlobalUtils.splitUserPassFileByComma(Config.uPath);
         for(int i = 0; i < list.size(); i++) {
             if(list.get(i).equalsIgnoreCase(username)) {
-                return list.get(i);
+                return list.get(i-2);
             }
         }
         return "NOT_FOUND";

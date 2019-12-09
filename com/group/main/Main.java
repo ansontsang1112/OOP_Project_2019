@@ -17,6 +17,7 @@ public class Main {
         if (!Utils.isFileExists(Config.getPath(1)) || !Utils.isFileExists(Config.getPath(2))) {
             Initialization.boot();
         }
-        new LoginGUI().login();
+
+
     }
 }
