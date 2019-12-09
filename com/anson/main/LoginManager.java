@@ -1,10 +1,8 @@
 package com.anson.main;
 
-import com.anson.main.Utils.FileUtils;
 import com.anson.main.Utils.GlobalUtils;
 import com.anson.main.enums.LoginStatus;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 

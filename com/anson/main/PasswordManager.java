@@ -4,10 +4,6 @@ import com.anson.main.enums.LoginStatus;
 import com.anson.main.enums.PasswordStatus;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class PasswordManager {
@@ -63,7 +59,7 @@ public class PasswordManager {
         }
     }
 
-    public static PasswordStatus changePasswordwithAdminRole(String username, String newPassword) throws IOException {
+    public static PasswordStatus changePasswordByAdministrator(String username, String newPassword) throws IOException {
         String currentUsername = LoginManager.currentLoginUsername;
         if(currentUsername == LoginStatus.NOT_LOGIN.toString()) {
             return PasswordStatus.LOGIN_REQUIRED;
@@ -77,12 +73,12 @@ public class PasswordManager {
         }
     }
 
-    public static PasswordStatus changePasswordwithPersonalRole(String newPassword) throws IOException {
-        if(LoginManager.currentLoginUsername == LoginStatus.NOT_LOGIN.toString()) {
+    public static PasswordStatus changePasswordByUser(String newPassword) throws IOException {
+        String username = LoginManager.currentLoginUsername;
+        if(username == LoginStatus.NOT_LOGIN.toString()) {
             return PasswordStatus.LOGIN_REQUIRED;
         }
-
-        boolean changeResult = editPasswordAPI(LoginManager.currentLoginUsername, newPassword);
+        boolean changeResult = editPasswordAPI(username, newPassword);
         if(changeResult) {
             return PasswordStatus.UPDATE_SUCCESS;
         } else {
