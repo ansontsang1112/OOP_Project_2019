@@ -78,12 +78,11 @@ public class PasswordManager {
     }
 
     public static PasswordStatus changePasswordwithPersonalRole(String newPassword) throws IOException {
-        String username = LoginManager.currentLoginUsername;
-        if(username == LoginStatus.NOT_LOGIN.toString()) {
+        if(LoginManager.currentLoginUsername == LoginStatus.NOT_LOGIN.toString()) {
             return PasswordStatus.LOGIN_REQUIRED;
         }
 
-        boolean changeResult = editPasswordAPI(username, newPassword);
+        boolean changeResult = editPasswordAPI(LoginManager.currentLoginUsername, newPassword);
         if(changeResult) {
             return PasswordStatus.UPDATE_SUCCESS;
         } else {

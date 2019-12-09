@@ -3,7 +3,7 @@ package com.anson.main;
 import com.anson.main.Utils.FileUtils;
 import com.anson.main.enums.InitializationStatus;
 import com.anson.main.enums.LoginStatus;
-import com.kenny.main.Register;
+import com.kenny.main.RegisterManager;
 
 import java.io.File;
 import java.io.IOException;
@@ -28,9 +28,9 @@ public class Initialization {
 		}
 
 		/*Create the Default Accounts*/
-		Register.createUser("001", "a", "a", "Ng Hoi Yun Gordon", "Administrator", "2000", "Eric Killer");
-		Register.createUser("002", "b", "b", "Tsang Cheuk Him Anson", "User","2000", "Eric Destroyer");
-		Register.createUser("003", "c", "c", "Chak Chun Yin Kenny", "Administrator","2000", "Eric Boomer");
+		RegisterManager.createUser("001", "a", "a", "Ng Hoi Yun Gordon", "Administrator", "2000", "Eric Killer");
+		RegisterManager.createUser("002", "b", "b", "Tsang Cheuk Him Anson", "User","2000", "Eric Destroyer");
+		RegisterManager.createUser("003", "c", "c", "Chak Chun Yin Kenny", "Administrator","2000", "Eric Boomer");
 
 	}
 }
