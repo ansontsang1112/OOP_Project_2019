@@ -15,10 +15,10 @@ import java.util.Scanner;
 public class UserRemovalManager extends Config {
     private static Scanner x;
 
-    private static boolean editPasswordAPI(String editUsername) {
+    private static boolean removalAPI(String editableUsername) {
         Integer resultSet = 0;
         String deleteSign = "----";
-        String tempFile = "temp.csv";
+        String tempFile = "removalAPI.csv";
         File originalFile = new File(Config.getPath(1));
         File newFile = new File(tempFile);
         String UID = ""; String pwd = ""; String username = "";  String fullName = ""; String role = ""; String YOB = ""; String remark = "";
@@ -38,7 +38,7 @@ public class UserRemovalManager extends Config {
                 role = x.next();
                 YOB = x.next();
                 remark = x.next();
-                if(UID.equalsIgnoreCase(editUsername)) {
+                if(UID.equalsIgnoreCase(UIDHandler(editableUsername))) {
                     pw.println(deleteSign+","+deleteSign+","+deleteSign+","+deleteSign+","+deleteSign+","+deleteSign+","+deleteSign);
                     resultSet = 1;
                 } else {
@@ -76,8 +76,11 @@ public class UserRemovalManager extends Config {
 
     public static RemovalStatus userRemoval(String username) throws IOException {
         if(LoginManager.currentLoginUsername == LoginStatus.NOT_LOGIN.toString()) {return RemovalStatus.LOGIN_REQUIRED;}
-        if(!PermissionManager.isAdministrator(username)) {return RemovalStatus.PERMISSION_DENIDED;}
-
+        if(!PermissionManager.isAdministrator(LoginManager.currentLoginUsername)) {return RemovalStatus.PERMISSION_DENIDED;}
+        boolean result = removalAPI(username);
+        if(result) {
+            return RemovalStatus.REMOVAL_SUCCESS;
+        }
         return RemovalStatus.REMOVAL_FAILURE;
     }
 }
