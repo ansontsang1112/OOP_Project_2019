@@ -17,10 +17,7 @@ public class LoginGUI extends JFrame implements ActionListener {
     JPasswordField password_text;
     JButton submit, cancel;
 
-
-
-
-    public void login() {
+    public LoginGUI() {
         // Username Label
         user_label = new JLabel();
         user_label.setText("User Name :");

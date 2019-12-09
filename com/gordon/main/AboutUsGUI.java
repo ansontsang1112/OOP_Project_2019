@@ -1,6 +1,5 @@
 package com.gordon.main;
 
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -18,14 +17,14 @@ public class AboutUsGUI extends JFrame{
 
     BufferedImage orgImg;
 
-    public AboutUsGUI() { // A No-Argument Constructor
+    public AboutUsGUI() {
         setTitle("MyName Image Viewer");
         setSize(500, 300);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         initGUI();
     }
 
-    void initGUI(){ // Method for initializing GUI (layout, components)
+    void initGUI() {
         add(LogIn, BorderLayout.NORTH);
         add(butAboutMe, BorderLayout.NORTH);
         add(sPImg, BorderLayout.CENTER);

@@ -2,22 +2,28 @@ package com.kc.main;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class RegisterGUI extends JFrame implements ActionListener {
+
+    // Components of the Form
     private Container c;
     private JLabel title;
     private JLabel name;
     private JTextField tname;
-    private JLabel username;
-    private JTextField uname;
+    private JLabel nname;
+    private JTextField ttname;
+    private JLabel password;
+    private JTextField tpassword;
     private JLabel mno;
     private JTextField tmno;
+    private JLabel gender;
+    private JRadioButton male;
+    private JRadioButton female;
     private ButtonGroup gengp;
-    private JLabel dob;
-    private JComboBox date;
-    private JComboBox month;
+    private JLabel yob;
+
+
     private JComboBox year;
     private JLabel add;
     private JTextArea tadd;
@@ -28,15 +34,26 @@ public class RegisterGUI extends JFrame implements ActionListener {
     private JLabel res;
     private JTextArea resadd;
 
-    private String years[]
-            = { "1995", "1996", "1997", "1998",
-            "1999", "2000", "2001", "2002",
-            "2003", "2004", "2005", "2006",
-            "2007", "2008", "2009", "2010",
-            "2011", "2012", "2013", "2014",
-            "2015", "2016", "2017", "2018",
-            "2019" };
 
+    private String years[]
+            = { "1960", "1961", "1962", "1963",
+            "1964", "1965", "1966", "1967",
+            "1968", "1969", "1970", "1971",
+            "1972", "1973", "1974", "1975",
+            "1976", "1977", "1978", "1979",
+            "1980", "1981", "1982", "1983",
+            "1984", "1985", "1986", "1987",
+            "1988", "1989", "1990", "1991",
+            "1992", "1993", "1994", "1995",
+            "1996", "1997", "1998", "1999",
+            "2000", "2001", "2002", "2003",
+            "2004", "2005", "2006", "2007",
+            "2008", "2009", "2010", "2011",
+            "2012", "2013", "2014", "2015",
+            "2016", "2017", "2018", "2019" };
+
+    // constructor, to initialize the components
+    // with default values.
     public RegisterGUI()
     {
         setTitle("Registration Form");
@@ -53,7 +70,7 @@ public class RegisterGUI extends JFrame implements ActionListener {
         title.setLocation(300, 30);
         c.add(title);
 
-        name = new JLabel("Your Name");
+        name = new JLabel("Username");
         name.setFont(new Font("Arial", Font.PLAIN, 20));
         name.setSize(100, 20);
         name.setLocation(100, 100);
@@ -61,23 +78,36 @@ public class RegisterGUI extends JFrame implements ActionListener {
 
         tname = new JTextField();
         tname.setFont(new Font("Arial", Font.PLAIN, 15));
-        tname.setSize(190, 20);
+        tname.setSize(150, 20);
         tname.setLocation(200, 100);
         c.add(tname);
 
-        username = new JLabel("Username");
-        username.setFont(new Font("Arial", Font.PLAIN, 20));
-        username.setSize(100, 20);
-        username.setLocation(100, 100);
-        c.add(username);
+        nname = new JLabel("Your name");
+        nname.setFont(new Font("Arial", Font.PLAIN, 20));
+        nname.setSize(150, 20);
+        nname.setLocation(100, 119);
+        c.add(nname);
 
-        uname = new JTextField();
-        uname.setFont(new Font("Arial", Font.PLAIN, 15));
-        uname.setSize(190, 20);
-        uname.setLocation(200, 100);
-        c.add(uname);
+        ttname = new JTextField();
+        ttname.setFont(new Font("Arial", Font.PLAIN, 15));
+        ttname.setSize(150, 35);
+        ttname.setLocation(200, 109);
+        c.add(ttname);
 
-        mno = new JLabel("Password");
+        password = new JLabel("password");
+        password.setFont(new Font("Arial", Font.PLAIN, 20));
+        password.setSize(100, 0);
+        password.setLocation(100, 100);
+        c.add(password);
+
+        tpassword = new JTextField();
+        tpassword.setFont(new Font("Arial", Font.PLAIN, 20));
+        tpassword.setSize(190, 40);
+        tpassword.setLocation(200, 100);
+        c.add(tpassword);
+
+
+        mno = new JLabel("Mobile");
         mno.setFont(new Font("Arial", Font.PLAIN, 20));
         mno.setSize(100, 20);
         mno.setLocation(100, 150);
@@ -89,11 +119,36 @@ public class RegisterGUI extends JFrame implements ActionListener {
         tmno.setLocation(200, 150);
         c.add(tmno);
 
-        dob = new JLabel("DOB");
-        dob.setFont(new Font("Arial", Font.PLAIN, 20));
-        dob.setSize(100, 20);
-        dob.setLocation(100, 250);
-        c.add(dob);
+        gender = new JLabel("Gender");
+        gender.setFont(new Font("Arial", Font.PLAIN, 20));
+        gender.setSize(100, 20);
+        gender.setLocation(100, 200);
+        c.add(gender);
+
+        male = new JRadioButton("Male");
+        male.setFont(new Font("Arial", Font.PLAIN, 15));
+        male.setSelected(true);
+        male.setSize(75, 20);
+        male.setLocation(200, 200);
+        c.add(male);
+
+        female = new JRadioButton("Female");
+        female.setFont(new Font("Arial", Font.PLAIN, 15));
+        female.setSelected(false);
+        female.setSize(80, 20);
+        female.setLocation(275, 200);
+        c.add(female);
+
+        gengp = new ButtonGroup();
+        gengp.add(male);
+        gengp.add(female);
+
+        yob = new JLabel("Year of birth");
+        yob.setFont(new Font("Arial", Font.PLAIN, 20));
+        yob.setSize(1000, 20);
+        yob.setLocation(100, 250);
+        c.add(yob);
+
 
         year = new JComboBox(years);
         year.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -101,7 +156,7 @@ public class RegisterGUI extends JFrame implements ActionListener {
         year.setLocation(320, 250);
         c.add(year);
 
-        add = new JLabel("Remark");
+        add = new JLabel("Address");
         add.setFont(new Font("Arial", Font.PLAIN, 20));
         add.setSize(100, 20);
         add.setLocation(100, 300);
@@ -158,6 +213,9 @@ public class RegisterGUI extends JFrame implements ActionListener {
         setVisible(true);
     }
 
+    // method actionPerformed()
+    // to get the action performed
+    // by the user and act accordingly
     public void actionPerformed(ActionEvent e)
     {
         if (e.getSource() == sub) {
@@ -166,15 +224,23 @@ public class RegisterGUI extends JFrame implements ActionListener {
                 String data
                         = "Name : "
                         + tname.getText() + "\n"
+
                         + "Mobile : "
                         + tmno.getText() + "\n";
+                if (male.isSelected())
+                    data1 = "Gender : Male"
+                            + "\n";
+                else
+                    data1 = "Gender : Female"
+                            + "\n";
                 String data2
                         = "DOB : "
-                        + (String)year.getSelectedItem()
+
+                        + "/" + (String)year.getSelectedItem()
                         + "\n";
 
                 String data3 = "Address : " + tadd.getText();
-                tout.setText(data + data2 + data3);
+                tout.setText(data + data1 + data2 + data3);
                 tout.setEditable(false);
                 res.setText("Registration Successfully..");
             }
@@ -194,8 +260,7 @@ public class RegisterGUI extends JFrame implements ActionListener {
             res.setText(def);
             tout.setText(def);
             term.setSelected(false);
-            date.setSelectedIndex(0);
-            month.setSelectedIndex(0);
+
             year.setSelectedIndex(0);
             resadd.setText(def);
         }
