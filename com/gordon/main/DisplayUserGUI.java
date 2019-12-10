@@ -8,8 +8,8 @@ import javax.swing.*;
 import javax.swing.table.*;
 
 
-public class DisplayUser{
-    public static void main(String[] args) {
+public class DisplayUserGUI {
+    public static void DisplayUserEXE() {
         try {
             String datafile = "G42User.csv";
             FileReader fin = new FileReader(datafile);

@@ -36,6 +36,16 @@ public class Utils {
         return null;
     }
 
+    public static boolean isUserExist(String username) throws IOException {
+        ArrayList<String> spiltWords = GlobalUtils.splitUserPassFileByComma(Config.getPath(1));
+        for(int i = 0; i < spiltWords.size(); i++) {
+            if(username.equalsIgnoreCase(spiltWords.get(i))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public static String getFullName(String username) throws IOException {
         ArrayList<String> spiltWords = GlobalUtils.splitUserPassFileByComma(Config.getPath(1));
         for(int i = 0; i < spiltWords.size(); i++) {

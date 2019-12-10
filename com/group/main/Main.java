@@ -15,6 +15,7 @@ import com.kenny.main.UserRemovalManager;
 import java.io.IOException;
 
 public class Main {
+    public static String tempName = "";
     public static void main(String[] args) throws IOException {
         /*Boot Up the Programme*/
         if (!Utils.isFileExists(Config.getPath(1)) || !Utils.isFileExists(Config.getPath(2))) {

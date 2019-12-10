@@ -1,10 +1,16 @@
 package com.anson.main;
 
+import com.anson.main.Utils.FileUtils;
 import com.anson.main.Utils.GlobalUtils;
 import com.anson.main.enums.LoginStatus;
+import com.kenny.main.UserRemovalManager;
 
+import java.io.File;
 import java.io.IOException;
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class LoginManager {
 
@@ -27,8 +33,12 @@ public class LoginManager {
         if(isPassExist) {
             if(getUsername(encryPassword).equalsIgnoreCase(username)) {
                 currentLoginUsername = username;
+                String logs = UUID.randomUUID() + "," + UserRemovalManager.UIDHandler(username) + "," + java.util.Calendar.getInstance().getTime() + "," + "Success";
+                FileUtils.appendToFile(new File(Config.lPath), logs);
                 return LoginStatus.LOGIN_SUCCESS;
             } else {
+                String logs = UUID.randomUUID() + "," + UserRemovalManager.UIDHandler(username) + "," + java.util.Calendar.getInstance().getTime() + "," + "Failure";
+                FileUtils.appendToFile(new File(Config.lPath), logs);
                 return LoginStatus.LOGIN_FAIL;
             }
         }
