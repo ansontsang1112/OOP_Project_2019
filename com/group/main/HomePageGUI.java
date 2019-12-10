@@ -50,6 +50,7 @@ public class HomePageGUI {
         frame.getContentPane().add(panel);
             BufferedImage myPicture = ImageIO.read(new File("homepage.jpg"));
             JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+            panel.add(picLabel);
         } catch (IOException e) {
             e.printStackTrace();
         }

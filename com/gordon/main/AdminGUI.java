@@ -108,6 +108,10 @@ public class AdminGUI {
         JButton btnDeleteLoginrecord = new JButton("Delete LoginRecord");
         btnDeleteLoginrecord.setBounds(277, 197, 257, 82);
         frame.getContentPane().add(btnDeleteLoginrecord);
+        btnDeleteLoginrecord.addActionListener(arg0 -> {
+            JOptionPane.showMessageDialog(null, "This Function are not available yet. Thank you.",
+                    "Sorry? - WFGTC", JOptionPane.INFORMATION_MESSAGE);
+        });
 
         JButton btnChangePermission = new JButton("Change Permission");
         btnChangePermission.setBounds(544, 197, 257, 82);

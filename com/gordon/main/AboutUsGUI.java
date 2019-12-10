@@ -4,8 +4,6 @@ import javax.swing.*;
 
 public class AboutUsGUI extends JFrame{
     public AboutUsGUI() {
-        //setSize(500, 300);
-
         JOptionPane.showMessageDialog(null,
                 "Members(left to right):\n" +
                         "Name&Number\n Ng Hoi Yun 20089244\n Tsang Cheuk Him 20089261\n Hung Ka Chun 20079467\n Chak Chun Yin 20089310",

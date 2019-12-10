@@ -175,9 +175,9 @@ public class ControlPanelGUI {
             String [] catagory = {"Redstone Tech.", "Building Tech.", "Command Tech."};
             String [] classLevel = {"New Player", "Beginner", "Intermediate Player", "hardcore Gamer"};
             String cInput = (String) JOptionPane.showInputDialog(null, "Please select the learning catagory.", "Minecraft Technical: The learning catagory", JOptionPane.QUESTION_MESSAGE, null, catagory, catagory[0]);
-            String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the Level of Minecraft Gaming.", "Minecraft Technical: Gaming Level", JOptionPane.QUESTION_MESSAGE, null, catagory, catagory[0]);
+            String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the Level of Minecraft Gaming.", "Minecraft Technical: Gaming Level", JOptionPane.QUESTION_MESSAGE, null, classLevel, classLevel[0]);
             try{
-                if(Utils.classRegisterAPI(1, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
+                if(Utils.classRegisterAPI(0, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
                     JOptionPane.showMessageDialog(null, "Appointment Success.", "Minecraft Technical: Success", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Appointment Fail.", "Minecraft Technical: Fail", JOptionPane.INFORMATION_MESSAGE);
@@ -196,7 +196,7 @@ public class ControlPanelGUI {
             String cInput = (String) JOptionPane.showInputDialog(null, "Please select the Rank", "Apex Legend Skills: Rank", JOptionPane.QUESTION_MESSAGE, null, rank, rank[0]);
             String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the Level", "Apex Legend Skills: Level", JOptionPane.QUESTION_MESSAGE, null, mmr, mmr[0]);
             try{
-                if(Utils.classRegisterAPI(2, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
+                if(Utils.classRegisterAPI(1, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
                     JOptionPane.showMessageDialog(null, "Appointment Success.", "Apex Legend Skills: Success", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Appointment Fail.", "RApex Legend Skills: Fail", JOptionPane.INFORMATION_MESSAGE);
@@ -210,13 +210,13 @@ public class ControlPanelGUI {
         JButton btnCsgoTrainingClass = new JButton("CS:Go Training Class");
         btnCsgoTrainingClass.setBounds(385, 219, 182, 125);
         frame.getContentPane().add(btnCsgoTrainingClass);
-        btnApexLegendTclass.addActionListener(arg0 -> {
+        btnCsgoTrainingClass.addActionListener(arg0 -> {
             String [] choose1 = { "LEVEL1", "LEVEL2", "LEVEL3", "LEVEL4"};
             String [] choose2 = {"newplayer", "beginner", "Intermediate player", "hardcore gamer"};
             String cInput = (String) JOptionPane.showInputDialog(null, "Please select the Level", "CS:Go Skills: Level", JOptionPane.QUESTION_MESSAGE, null, choose1, choose1[0]);
             String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the Power", "CS:Go Skills: Power", JOptionPane.QUESTION_MESSAGE, null, choose2, choose2[0]);
             try{
-                if(Utils.classRegisterAPI(4, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
+                if(Utils.classRegisterAPI(3, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
                     JOptionPane.showMessageDialog(null, "Appointment Success.", "CS:Go Skills: Success", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Appointment Fail.", "CS:Go Skills: Fail", JOptionPane.INFORMATION_MESSAGE);
@@ -229,13 +229,13 @@ public class ControlPanelGUI {
         JButton btnRainbowTraining = new JButton("Rainbow 6 Training Class");
         btnRainbowTraining.setBounds(577, 220, 165, 125);
         frame.getContentPane().add(btnRainbowTraining);
-        btnApexLegendTclass.addActionListener(arg0 -> {
+        btnRainbowTraining.addActionListener(arg0 -> {
             String [] rank = {"Copper", "Bronze", "Sliver", "Gold", "Platinum", "Diamond", "Champion"};
             String [] mmr = {"0-1599", "1600-2099", "2100-2599", "2600-3199", "3200-4399", "4400-5000"};
             String cInput = (String) JOptionPane.showInputDialog(null, "Please select the Rank", "Rainbow 6 Skills: Rank", JOptionPane.QUESTION_MESSAGE, null, rank, rank[0]);
             String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the MMR", "Rainbow 6 Skills: MMR", JOptionPane.QUESTION_MESSAGE, null, mmr, mmr[0]);
             try{
-                if(Utils.classRegisterAPI(3, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
+                if(Utils.classRegisterAPI(2, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
                     JOptionPane.showMessageDialog(null, "Appointment Success.", "Rainbow 6 Skills: Success", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Appointment Fail.", "Rainbow 6 Skills: Fail", JOptionPane.INFORMATION_MESSAGE);
@@ -248,6 +248,10 @@ public class ControlPanelGUI {
         JButton btnCheckAttemptedClass = new JButton("Check Attempted Class");
         btnCheckAttemptedClass.setBounds(385, 354, 357, 41);
         frame.getContentPane().add(btnCheckAttemptedClass);
+        btnCheckAttemptedClass.addActionListener(arg0 -> {
+            JOptionPane.showMessageDialog(null, "This Function are not available yet. Thank you.",
+                    "Sorry? - WFGTC", JOptionPane.INFORMATION_MESSAGE);
+        });
     }
 
 }

@@ -30,9 +30,9 @@ public class Initialization {
 
 		/*Create the Default Accounts*/
 		RegisterManager.createUser("001", "a", "a", "Ng Hoi Yun Gordon", "Administrator", "2000", "Eric Killer");
-		RegisterManager.createUser("002", "b", "b", "Tsang Cheuk Him Anson", "User","2000", "Eric Destroyer");
-		RegisterManager.createUser("003", "c", "c", "Chak Chun Yin Kenny", "Administrator","2000", "Eric Boomer");
-		RegisterManager.createUser("004", "d", "d", "Hung Ka Chun KC", "User", "2000", "Eric Operator");
+		RegisterManager.createUser("002", "g", "g1", "Tsang Cheuk Him Anson", "User","2000", "Eric Destroyer");
+		RegisterManager.createUser("003", "g", "g2", "Chak Chun Yin Kenny", "Administrator","2000", "Eric Boomer");
+		RegisterManager.createUser("004", "g", "g3", "Hung Ka Chun KC", "User", "2000", "Eric Operator");
 
 		if(defaultLogRecordFile.createNewFile() && defaultUserPassFile.createNewFile()) {
 			Config.iniStatus = InitializationStatus.SUCCESS;

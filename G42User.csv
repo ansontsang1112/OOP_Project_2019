@@ -1,6 +1,7 @@
 U_ID,Encrypted_Pwd,U_Name,Full_Name,U_Role,Year_of_Birth,Remarks
 001,cc175b9c0f1b6a831c399e269772661,a,Ng Hoi Yun Gordon,Administrator,2000,Eric Killer
-002,92eb5ffee6ae2fec3ad71c777531578f,b,Tsang Cheuk Him Anson,User,2000,Eric Destroyer
-003,4a8a8f09d37b73795649038408b5f33,c,Chak Chun Yin Kenny,Administrator,2000,Eric Boomer
-004,8277e091d75195b448797616e091ad,d,Hung Ka Chun KC,User,2000,Eric Operator
-005,e1671797c52e15f76338b45e841ec32,e,Lam Chak Wai Eric,User,2000,The Super Sucker
+002,b2f5ff47436671b6e533d8dc3614845d,g1,Tsang Cheuk Him Anson,User,2000,Eric Destroyer
+003,b2f5ff47436671b6e533d8dc3614845d,g2,Chak Chun Yin Kenny,Administrator,2000,Eric Boomer
+004,b2f5ff47436671b6e533d8dc3614845d,g3,Hung Ka Chun KC,User,2000,Eric Operator
+005,e1671797c52e15f76338b45e841ec32,e,Eric Lam,User,2000,Bug Of Everything
+006,8fa14cdd754f91cc6554c9e71929cce7,f,Son Goku,User,1997,Super Saiyan
