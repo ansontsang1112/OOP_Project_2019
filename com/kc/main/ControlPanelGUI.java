@@ -1,14 +1,14 @@
 package com.kc.main;
 
-import com.anson.main.Config;
-import com.anson.main.LoginManager;
-import com.anson.main.PermissionManager;
-import com.anson.main.Utils.GlobalUtils;
-import com.anson.main.enums.ClassStatus;
-import com.gordon.main.AboutUsGUI;
-import com.gordon.main.AdminGUI;
-import com.group.main.Utils;
-import com.kenny.main.GUI.RegisterGUI;
+import com.anson.main.G22LoginManager;
+import com.anson.main.G22PermissionManager;
+import com.anson.main.enums.G22ClassStatus;
+import com.gordon.main.G22AboutUsGUI;
+import com.gordon.main.G22AdminGUI;
+import com.gordon.main.G22ClassDisplayGUI;
+import com.group.main.Main;
+import com.group.main.G2Utils;
+import com.kenny.main.GUI.G2RegisterGUI;
 
 import java.awt.EventQueue;
 
@@ -16,7 +16,6 @@ import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.Component;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.UUID;
 
 public class ControlPanelGUI {
@@ -84,14 +83,14 @@ public class ControlPanelGUI {
         btnAboutUs.setBounds(500, 5, 178, 23);
         panel_2.add(btnAboutUs);
         btnAboutUs.addActionListener(arg0 -> {
-            AboutUsGUI myGUI = new AboutUsGUI();
+            G22AboutUsGUI myGUI = new G22AboutUsGUI();
         });
 
         JPanel panel_3 = new JPanel();
         panel_3.setBounds(0, 24, 752, 25);
         frame.getContentPane().add(panel_3);
 
-        JLabel lblWelcomeLoginTo = new JLabel("Welcome "+ Utils.getFullName(LoginManager.currentLoginUsername) +" Login to White Fruit Gaming Training Center, You are " + PermissionManager.roleHandler(LoginManager.currentLoginUsername) + " .");
+        JLabel lblWelcomeLoginTo = new JLabel("Welcome "+ G2Utils.getFullName(G22LoginManager.currentLoginUsername) +" Login to White Fruit Gaming Training Center, You are " + G22PermissionManager.roleHandler(G22LoginManager.currentLoginUsername) + " .");
         panel_3.add(lblWelcomeLoginTo);
 
         JPanel panel_4 = new JPanel();
@@ -115,7 +114,7 @@ public class ControlPanelGUI {
         panel_4.add(btnCheckUserInformation);
         btnCheckUserInformation.addActionListener(arg0 -> {
             try {
-                JOptionPane.showMessageDialog(null, Utils.informationStringFormatter(),
+                JOptionPane.showMessageDialog(null, G2Utils.informationStringFormatter(),
                         "Permission Checker - WFGTC", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -127,7 +126,7 @@ public class ControlPanelGUI {
         panel_4.add(btnEnterAdminPanel);
         btnEnterAdminPanel.addActionListener(arg0 -> {
             try {
-                AdminGUI.AdminGUIEXE();
+                G22AdminGUI.AdminGUIEXE();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -148,7 +147,7 @@ public class ControlPanelGUI {
         panel_4.add(btnPermissionRoleCheck);
         btnPermissionRoleCheck.addActionListener(arg0 -> {
             try {
-                JOptionPane.showMessageDialog(null, "Your Permission Role: " + PermissionManager.roleHandler(LoginManager.currentLoginUsername),
+                JOptionPane.showMessageDialog(null, "Your Permission Role: " + G22PermissionManager.roleHandler(G22LoginManager.currentLoginUsername),
                         "Permission Checker - WFGTC", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -158,7 +157,7 @@ public class ControlPanelGUI {
         JButton btnRegisterNewAccount = new JButton("Register New Account");
         btnRegisterNewAccount.setBounds(203, 101, 162, 57);
         panel_4.add(btnRegisterNewAccount);
-        btnRegisterNewAccount.addActionListener(arg0 -> RegisterGUI.RegisterGUIEXE());
+        btnRegisterNewAccount.addActionListener(arg0 -> G2RegisterGUI.RegisterGUIEXE());
 
         Component horizontalStrut = Box.createHorizontalStrut(20);
         horizontalStrut.setBounds(0, 181, 375, 20);
@@ -177,7 +176,7 @@ public class ControlPanelGUI {
             String cInput = (String) JOptionPane.showInputDialog(null, "Please select the learning catagory.", "Minecraft Technical: The learning catagory", JOptionPane.QUESTION_MESSAGE, null, catagory, catagory[0]);
             String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the Level of Minecraft Gaming.", "Minecraft Technical: Gaming Level", JOptionPane.QUESTION_MESSAGE, null, classLevel, classLevel[0]);
             try{
-                if(Utils.classRegisterAPI(0, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
+                if(G2Utils.classRegisterAPI(0, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == G22ClassStatus.CLASS_SUCCESS_APPOINTED) {
                     JOptionPane.showMessageDialog(null, "Appointment Success.", "Minecraft Technical: Success", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Appointment Fail.", "Minecraft Technical: Fail", JOptionPane.INFORMATION_MESSAGE);
@@ -196,7 +195,7 @@ public class ControlPanelGUI {
             String cInput = (String) JOptionPane.showInputDialog(null, "Please select the Rank", "Apex Legend Skills: Rank", JOptionPane.QUESTION_MESSAGE, null, rank, rank[0]);
             String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the Level", "Apex Legend Skills: Level", JOptionPane.QUESTION_MESSAGE, null, mmr, mmr[0]);
             try{
-                if(Utils.classRegisterAPI(1, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
+                if(G2Utils.classRegisterAPI(1, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == G22ClassStatus.CLASS_SUCCESS_APPOINTED) {
                     JOptionPane.showMessageDialog(null, "Appointment Success.", "Apex Legend Skills: Success", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Appointment Fail.", "RApex Legend Skills: Fail", JOptionPane.INFORMATION_MESSAGE);
@@ -216,7 +215,7 @@ public class ControlPanelGUI {
             String cInput = (String) JOptionPane.showInputDialog(null, "Please select the Level", "CS:Go Skills: Level", JOptionPane.QUESTION_MESSAGE, null, choose1, choose1[0]);
             String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the Power", "CS:Go Skills: Power", JOptionPane.QUESTION_MESSAGE, null, choose2, choose2[0]);
             try{
-                if(Utils.classRegisterAPI(3, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
+                if(G2Utils.classRegisterAPI(3, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == G22ClassStatus.CLASS_SUCCESS_APPOINTED) {
                     JOptionPane.showMessageDialog(null, "Appointment Success.", "CS:Go Skills: Success", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Appointment Fail.", "CS:Go Skills: Fail", JOptionPane.INFORMATION_MESSAGE);
@@ -235,7 +234,7 @@ public class ControlPanelGUI {
             String cInput = (String) JOptionPane.showInputDialog(null, "Please select the Rank", "Rainbow 6 Skills: Rank", JOptionPane.QUESTION_MESSAGE, null, rank, rank[0]);
             String ccInput = (String) JOptionPane.showInputDialog(null, "Please select the MMR", "Rainbow 6 Skills: MMR", JOptionPane.QUESTION_MESSAGE, null, mmr, mmr[0]);
             try{
-                if(Utils.classRegisterAPI(2, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == ClassStatus.CLASS_SUCCESS_APPOINTED) {
+                if(G2Utils.classRegisterAPI(2, UUID.randomUUID().toString(), java.util.Calendar.getInstance().getTime().toString(), cInput, ccInput) == G22ClassStatus.CLASS_SUCCESS_APPOINTED) {
                     JOptionPane.showMessageDialog(null, "Appointment Success.", "Rainbow 6 Skills: Success", JOptionPane.INFORMATION_MESSAGE);
                 } else {
                     JOptionPane.showMessageDialog(null, "Appointment Fail.", "Rainbow 6 Skills: Fail", JOptionPane.INFORMATION_MESSAGE);
@@ -245,12 +244,18 @@ public class ControlPanelGUI {
             }
         });
 
-        JButton btnCheckAttemptedClass = new JButton("Check Attempted Class");
+        JButton btnCheckAttemptedClass = new JButton("Check Attempted Class (ALL)");
         btnCheckAttemptedClass.setBounds(385, 354, 357, 41);
         frame.getContentPane().add(btnCheckAttemptedClass);
         btnCheckAttemptedClass.addActionListener(arg0 -> {
-            JOptionPane.showMessageDialog(null, "This Function are not available yet. Thank you.",
-                    "Sorry? - WFGTC", JOptionPane.INFORMATION_MESSAGE);
+            try {
+                String string = JOptionPane.showInputDialog(null, "Please Enter the Class Code (Minecraft Technical: 0, Apex Legend Skill: 1, " +
+                        "Rainbow 6 Skills: 2, CS:Go Skills: 3)", "Attempted Class (ALL)", JOptionPane.INFORMATION_MESSAGE);
+                Main.tempInt = Integer.parseInt(string);
+                G22ClassDisplayGUI.ClassDisplayGUIEXE();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
         });
     }
 

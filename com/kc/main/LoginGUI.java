@@ -1,8 +1,8 @@
 package com.kc.main;
 
-import com.anson.main.LoginManager;
-import com.anson.main.enums.LoginStatus;
-import com.group.main.HomePageGUI;
+import com.anson.main.G22LoginManager;
+import com.anson.main.enums.G22LoginStatus;
+import com.group.main.G22HomePageGUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,7 +46,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         String ADM = "";
-        if(HomePageGUI.ADM) {
+        if(G22HomePageGUI.ADM) {
             ADM = "Administrator";
         } else {
             ADM = "Customer";
@@ -65,7 +65,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         String password = password_text.getText();
 
         try {
-            if (LoginManager.authentication(username, password) == LoginStatus.LOGIN_SUCCESS) {
+            if (G22LoginManager.authentication(username, password) == G22LoginStatus.LOGIN_SUCCESS) {
                 setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
                 setVisible(false);
                 dispose();

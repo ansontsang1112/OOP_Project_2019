@@ -1,7 +1,7 @@
 package com.kc.main;
 
-import com.anson.main.PasswordManager;
-import com.anson.main.enums.PasswordStatus;
+import com.anson.main.G22PasswordManager;
+import com.anson.main.enums.G22PasswordStatus;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -89,7 +89,7 @@ public class PasswordRecoveryGUI implements ActionListener {
         if(!nPassword.equals(replyPassword)) {JOptionPane.showMessageDialog(null, "Password are not equal, please try again"); frame.setVisible(false); frame.dispose();}
 
         try {
-            if(PasswordManager.changePasswordByUser(nPassword) == PasswordStatus.UPDATE_SUCCESS) {
+            if(G22PasswordManager.changePasswordByUser(nPassword) == G22PasswordStatus.UPDATE_SUCCESS) {
                 JOptionPane.showMessageDialog(null, "Password Successfully Changed");
                 frame.setVisible(false);
                 frame.dispose();
