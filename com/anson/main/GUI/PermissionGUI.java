@@ -16,14 +16,12 @@ public class PermissionGUI {
      * Launch the application.
      */
     public static void PermissionGUIEXE() {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    PermissionGUI window = new PermissionGUI();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                PermissionGUI window = new PermissionGUI();
+                window.frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
@@ -41,7 +39,6 @@ public class PermissionGUI {
     private void initialize() throws IOException {
         frame = new JFrame();
         frame.setBounds(100, 100, 459, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setLayout(null);
 
         JPanel panel = new JPanel();

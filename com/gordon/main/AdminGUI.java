@@ -6,8 +6,11 @@ import com.anson.main.LoginManager;
 import com.anson.main.PasswordManager;
 import com.anson.main.PermissionManager;
 import com.anson.main.enums.PasswordStatus;
+import com.anson.main.enums.RemovalStatus;
 import com.group.main.Main;
 import com.group.main.Utils;
+import com.kenny.main.GUI.RegisterGUI;
+import com.kenny.main.UserRemovalManager;
 
 import java.awt.EventQueue;
 import java.io.IOException;
@@ -55,6 +58,9 @@ public class AdminGUI {
         JButton btnCreateNewUser = new JButton("Create new User");
         btnCreateNewUser.setBounds(10, 105, 257, 82);
         frame.getContentPane().add(btnCreateNewUser);
+        btnCreateNewUser.addActionListener(arg0 -> {
+            RegisterGUI.RegisterGUIEXE();
+        });
 
         JButton btnDisplayAllUser = new JButton("Display All User");
         btnDisplayAllUser.setBounds(277, 105, 257, 82);
@@ -66,12 +72,37 @@ public class AdminGUI {
         JButton btnDeleteUser = new JButton("Delete User");
         btnDeleteUser.setBounds(544, 105, 257, 82);
         frame.getContentPane().add(btnDeleteUser);
+        btnDeleteUser.addActionListener(arg0 -> {
+            Main.tempName = JOptionPane.showInputDialog(null, "Which User you are going to remove!!");
+            try{
+                if(Utils.isUserExist(Main.tempName)) {
+                   String accept = "";
+                   accept = JOptionPane.showInputDialog(null, "Are you sure to remove the User <" + Main.tempName + ">? Please enter 'YES' to continue.");
+                   if(accept.equalsIgnoreCase("YES")) {
+                       if(UserRemovalManager.userRemoval(Main.tempName) == RemovalStatus.REMOVAL_SUCCESS) {
+                           JOptionPane.showMessageDialog(null, "User <" + Main.tempName + "> are successfully removed.", "Notice: Removed Successfully", JOptionPane.INFORMATION_MESSAGE);
+                       } else {
+                           JOptionPane.showMessageDialog(null, "User <" + Main.tempName + "> removed failure. Please try later.", "Warning: Removal Failure", JOptionPane.INFORMATION_MESSAGE);
+                       }
+                   } else {
+                       JOptionPane.showMessageDialog(null, "You need to type 'YES' to accept the T&C", "Warning: Please accept the T&C", JOptionPane.INFORMATION_MESSAGE);
+                   }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
 
         JButton btnDisplayLoginrecord = new JButton("Display LoginRecord");
         btnDisplayLoginrecord.setBounds(10, 197, 257, 82);
         frame.getContentPane().add(btnDisplayLoginrecord);
         btnDisplayLoginrecord.addActionListener(arg0 -> {
             DisplayRecordGUI.DisplayRecordGUIEXE();
+        });
+        btnDisplayLoginrecord.addActionListener(arg0 -> {
+            JOptionPane.showMessageDialog(null, "This Function are not available yet. Thank you.",
+                    "Sorry? - WFGTC", JOptionPane.INFORMATION_MESSAGE);
         });
 
         JButton btnDeleteLoginrecord = new JButton("Delete LoginRecord");
@@ -125,6 +156,10 @@ public class AdminGUI {
         JButton btnDeleteTheProgram = new JButton("Delete the Program");
         btnDeleteTheProgram.setBounds(277, 289, 257, 82);
         frame.getContentPane().add(btnDeleteTheProgram);
+        btnDeleteTheProgram.addActionListener(arg0 -> {
+            JOptionPane.showMessageDialog(null, "This Function are not available yet. Thank you.",
+                    "Sorry? - WFGTC", JOptionPane.INFORMATION_MESSAGE);
+        });
 
         JButton btnLogout = new JButton("Logoff");
         btnLogout.setBounds(544, 289, 257, 82);

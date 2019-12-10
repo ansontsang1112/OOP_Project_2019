@@ -103,6 +103,4 @@ public class PasswordRecoveryGUI implements ActionListener {
             e.printStackTrace();
         }
     }
-
-
 }

@@ -15,7 +15,6 @@ public class DisplayUserGUI {
             FileReader fin = new FileReader(datafile);
             DefaultTableModel m = createTableModel(fin, null);
             JFrame f = new JFrame();
-            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             f.getContentPane().add(new JScrollPane(new JTable(m)));
             f.setSize(800, 400);
             f.setVisible(true);
@@ -28,8 +27,7 @@ public class DisplayUserGUI {
         }
     }
 
-    public static void defaultTableModelToStream(DefaultTableModel dtm,
-                                                 Writer out) throws IOException {
+    public static void defaultTableModelToStream(DefaultTableModel dtm, Writer out) throws IOException {
         final String LINE_SEP = System.getProperty("line.separator");
         int numCols = dtm.getColumnCount();
         int numRows = dtm.getRowCount();
@@ -57,8 +55,7 @@ public class DisplayUserGUI {
             out.write(LINE_SEP);
         }
     }
-    public static DefaultTableModel createTableModel(Reader in,
-                                                     Vector<Object> headers) {
+    public static DefaultTableModel createTableModel(Reader in, Vector<Object> headers) {
         DefaultTableModel model = null;
         Scanner s = null;
 

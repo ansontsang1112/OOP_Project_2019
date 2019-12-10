@@ -2,7 +2,7 @@ package com.kc.main;
 
 import com.anson.main.LoginManager;
 import com.anson.main.enums.LoginStatus;
-import com.group.main.HomepageGUI;
+import com.group.main.HomePageGUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -46,7 +46,7 @@ public class LoginGUI extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         String ADM = "";
-        if(HomepageGUI.ADM) {
+        if(HomePageGUI.ADM) {
             ADM = "Administrator";
         } else {
             ADM = "Customer";

@@ -8,6 +8,7 @@ import com.anson.main.enums.ClassStatus;
 import com.anson.main.enums.LoginStatus;
 import com.kenny.main.UserRemovalManager;
 
+import java.sql.Array;
 import java.time.Instant;
 
 import java.io.File;
@@ -79,6 +80,12 @@ public class Utils {
         File file = new File(filePathHandler);
         FileUtils.appendToFile(file, classCombo);
         return ClassStatus.CLASS_SUCCESS_APPOINTED;
+    }
+
+    public static String maxUID() throws IOException{
+        ArrayList<String>list = GlobalUtils.splitUserPassFileByComma(Config.getPath(1));
+        String [] w = list.get(list.size()-7).split("\n");
+        return w[1];
     }
 
 }
