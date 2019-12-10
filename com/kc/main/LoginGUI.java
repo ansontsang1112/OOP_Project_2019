@@ -2,12 +2,12 @@ package com.kc.main;
 
 import com.anson.main.LoginManager;
 import com.anson.main.enums.LoginStatus;
+import com.group.main.HomepageGUI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class LoginGUI extends JFrame implements ActionListener {
@@ -45,10 +45,17 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+        String ADM = "";
+        if(HomepageGUI.ADM) {
+            ADM = "Administrator";
+        } else {
+            ADM = "Customer";
+        }
+
         // Adding the listeners to components..
         submit.addActionListener(this);
         add(panel, BorderLayout.CENTER);
-        setTitle("Please Login Here !");
+        setTitle("Login Page for " + ADM + " - WF Gaming Training Center");
         setSize(450, 350);
         setVisible(true);
     }
@@ -59,7 +66,10 @@ public class LoginGUI extends JFrame implements ActionListener {
 
         try {
             if (LoginManager.authentication(username, password) == LoginStatus.LOGIN_SUCCESS) {
-                message.setText(" Hello " + LoginManager.currentLoginUsername + "");
+                setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                setVisible(false);
+                dispose();
+                ControlPanelGUI.ControlPanelGUIEXE();
             } else {
                 message.setText(" Invalid user .. Please Try Again");
             }

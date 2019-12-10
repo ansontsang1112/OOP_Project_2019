@@ -3,6 +3,7 @@ package com.group.main;
 import com.anson.main.Config;
 import com.anson.main.LoginManager;
 import com.anson.main.Utils.FileUtils;
+import com.anson.main.Utils.GlobalUtils;
 import com.anson.main.enums.ClassStatus;
 import com.anson.main.enums.LoginStatus;
 import com.kenny.main.UserRemovalManager;
@@ -12,11 +13,37 @@ import java.time.Instant;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class Utils {
     public static boolean isFileExists(String path) {
         File tempFile = new File(path);
         return tempFile.exists();
+    }
+
+    public static String informationStringFormatter() throws IOException {
+        String result = "";
+        ArrayList<String> list = GlobalUtils.splitUserPassFileByComma(Config.getPath(1));
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).equalsIgnoreCase(LoginManager.currentLoginUsername)) {
+                String [] parts = list.get(i+4).split("\n");
+                result = "User ID: " + list.get(i-2) + "\nPassword in MD5: " + list.get(i-1) + "\nUsername: " + list.get(i) +
+                        "\nYour Register Name: " + list.get(i+1) + "\nRole: " + list.get(i+2) + "\nYear of Birth: " + list.get(i+3) +
+                        "\nRemark: " + parts[0];
+                return result;
+            }
+        }
+        return null;
+    }
+
+    public static String getFullName(String username) throws IOException {
+        ArrayList<String> spiltWords = GlobalUtils.splitUserPassFileByComma(Config.getPath(1));
+        for(int i = 0; i < spiltWords.size(); i++) {
+            if(username.equalsIgnoreCase(spiltWords.get(i))) {
+                return spiltWords.get(i+1);
+            }
+        }
+        return null;
     }
 
     public static ClassStatus classRegisterAPI(int classNumber, String ARID, String rsTime, String aType, String remark) throws IOException {
@@ -43,6 +70,5 @@ public class Utils {
         FileUtils.appendToFile(file, classCombo);
         return ClassStatus.CLASS_SUCCESS_APPOINTED;
     }
-
 
 }

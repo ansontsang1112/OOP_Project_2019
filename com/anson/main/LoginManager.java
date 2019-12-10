@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class LoginManager {
 
     /* Get the Username By Password*/
-    private static String getUsername(String password) throws IOException {
+    public static String getUsername(String password) throws IOException {
         ArrayList<String> wordDatabase = GlobalUtils.splitUserPassFileByComma(Config.uPath);
         for (int i = 0; i < wordDatabase.size(); i++) {
             if(wordDatabase.get(i).equalsIgnoreCase(password)) {
